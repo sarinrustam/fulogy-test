@@ -1,0 +1,29 @@
+.header__icon {
+  color: white;
+  margin-right: 14px;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0 18px 0;
+}
+
+.header__avatar {
+  border-radius: 50%;
+}
+
+.header__wrapper {
+  line-height: 0;
+  border-left: 1px solid white;
+  padding-left: 10px;
+}
+
+.header__title {
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 19px;
+  color: white;
+}

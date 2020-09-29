@@ -5,7 +5,7 @@ import { red } from '@material-ui/core/colors';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#556cd6',
+      main: '#ffffff',
     },
     secondary: {
       main: '#19857b',
@@ -17,6 +17,29 @@ const theme = createMuiTheme({
       default: '#fff',
     },
   },
+  typography: {
+    fontFamily: [
+      'Open-Sans',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      'Arial',
+      'sans-serif'
+    ].join(','),
+  },
+  overrides: {
+    MuiBreadcrumbs: {
+      separator: {
+        color: 'white',
+        marginLeft: '0',
+        marginRight: '0',
+      },
+      li: {
+        fontSize: '12px',
+        lineHeight: '16px',
+        fontWeight: '400',
+      }
+    }
+  }
 });
 
 export default theme;
