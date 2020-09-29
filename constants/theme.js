@@ -28,15 +28,22 @@ const theme = createMuiTheme({
   },
   overrides: {
     MuiBreadcrumbs: {
+      ol: {
+        lineHeight: '16px',
+        fontSize: '12px',
+        fontWeight: '400',
+      },
       separator: {
         color: 'white',
         marginLeft: '0',
         marginRight: '0',
-      },
-      li: {
-        fontSize: '12px',
-        lineHeight: '16px',
-        fontWeight: '400',
+      }
+    },
+    MuiIconButton: {
+      root: {
+        padding: '0',
+        color: 'white',
+        margin: '0'
       }
     }
   }
