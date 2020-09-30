@@ -30,6 +30,7 @@ class UserForm extends React.Component {
     this.handleChangePhone = this.handleChangePhone.bind(this);
     this.handleAskModal = this.handleAskModal.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.handleSuccessModal = this.handleSuccessModal.bind(this);
   }
 
   submitForm() {
@@ -190,6 +191,7 @@ class UserForm extends React.Component {
         <Dialog
           aria-labelledby="succes-message"
           open={this.state.openSuccessModal}
+          onClose={this.handleSuccessModal}
           classes={{
             scrollPaper: styles['user-form__modal'], 
             paper: styles['user-form__modal-rounded']
