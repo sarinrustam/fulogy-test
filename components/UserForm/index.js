@@ -10,6 +10,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import PhoneIcon from '@material-ui/icons/Phone';
+import InputMask from "react-input-mask";
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -21,7 +22,9 @@ class UserForm extends React.Component {
       email: this.props.email,
       phone: this.props.phone,
       openAskModal: false,
-      openSuccessModal: false
+      openSuccessModal: false,
+      emailError: false,
+      phoneError: false
     };
 
     this.handleSubmitButton = this.handleSubmitButton.bind(this);
@@ -60,11 +63,30 @@ class UserForm extends React.Component {
       openSuccessModal: !this.state.openSuccessModal
     });
   }
-  
+
   handleAskModal() {
-    this.setState({
-      openAskModal: !this.state.openAskModal
-    });
+    if (!this.state.openAskModal) {
+     const regexEmail = /\S+@\S+\.\S+/;
+     const emailValid = regexEmail.test(this.state.email);
+    
+     const regexPhone = /^\d[\d\(\)\ -]{4,14}\d$/;
+     const phoneValid = regexPhone.test(this.state.phone);
+    
+     this.setState({
+      emailError: !emailValid,
+      phoneError: !phoneValid
+     });
+    
+     if (emailValid && phoneValid) {
+      this.setState({
+       openAskModal: true
+      });
+     }
+    } else {
+     this.setState({
+      openAskModal: false
+     });
+    }
   }
 
   handleChangeFullname(evt) {
@@ -80,14 +102,16 @@ class UserForm extends React.Component {
 
     this.setState({
       email: value,
+      emailError: false
     });
   }
 
   handleChangePhone(evt) {
     const value = evt.target.value;
-    console.log(value);
+    
     this.setState({
       phone: value,
+      phoneError: false
     });
   }
 
@@ -130,19 +154,29 @@ class UserForm extends React.Component {
                 variant="outlined"
                 defaultValue={this.state.email}
                 onChange={this.handleChangeEmail}
+                error={this.state.emailError}
+                helperText={this.state.emailError ? 'Неправильный email' : ''}
               />
             </li>
             <li className={styles['user-form__item']}>
               <PhoneIcon className={styles['user-form__icon']}/>
-              <TextField
-                className={styles['user-form__input']}
-                id="phone"
-                label="Номер телефона"
-                placeholder="Укажите номер телефона"
-                variant="outlined"
-                defaultValue={this.state.phone}
+              <InputMask
+                mask="8 999 999 99 99"
+                value={this.state.phone}
+                maskPlaceholder="8 999 999 99 99"
                 onChange={this.handleChangePhone}
-              />
+                maskChar="-"
+              >
+                {() => <TextField
+                  className={styles['user-form__input']}
+                  id="phone"
+                  label="Номер телефона"
+                  placeholder="Укажите номер телефона"
+                  variant="outlined"
+                  error={this.state.phoneError}
+                  helperText={this.state.phoneError ? 'Неправильный номер телефона' : ''}
+                />}
+              </InputMask>
             </li>
           </ul>
           <Button
@@ -183,7 +217,9 @@ class UserForm extends React.Component {
             </Button>
             <Button
              className={styles['user-form__modal-cancel']} 
-             variant="outlined">
+             variant="outlined"
+             onClick={this.props.handleFormOpen}
+            >
                Не сохранять
             </Button>
           </div>
@@ -191,7 +227,7 @@ class UserForm extends React.Component {
         <Dialog
           aria-labelledby="succes-message"
           open={this.state.openSuccessModal}
-          onClose={this.handleSuccessModal}
+          onClick={this.props.handleFormOpen}
           classes={{
             scrollPaper: styles['user-form__modal'], 
             paper: styles['user-form__modal-rounded']
@@ -203,7 +239,7 @@ class UserForm extends React.Component {
               color="primary"
               className={styles['user-form__success-button']}
               variant="contained"
-              onClick={this.handleSuccessModal}
+              onClick={this.props.handleFormOpen}
             >Хорошо</Button>
           </div>
         </Dialog>

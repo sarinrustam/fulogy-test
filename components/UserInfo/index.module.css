@@ -13,7 +13,7 @@
   border-bottom: 1px solid #CAE7FE;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1365px) {
   .user-info__item {
     padding: 33px 0 33px 77px;
   }
@@ -31,7 +31,7 @@
   margin: 0;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1365px) {
   .user-info__text {
     font-size: 18px;
     line-height: 25px;
@@ -43,7 +43,7 @@
   margin-right: 12px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1365px) {
   .user-info__icon {
     width: 30px;
     height: 30px;

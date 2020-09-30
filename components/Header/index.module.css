@@ -7,7 +7,7 @@
   margin-right: 14px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1365px) {
   .header__icon {
     width: 24px;
     height: 29px;
@@ -25,7 +25,7 @@
   border-radius: 50%;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1365px) {
   .header__avatar {
     margin-right: 20px;
     width: 40px;
@@ -49,7 +49,7 @@
   text-transform: uppercase;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1365px) {
   .header__title {
     font-size: 18px;
     line-height: 25px;
@@ -60,7 +60,7 @@
   display: none;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1365px) {
   .header__name {
     display: block;
   font-size: 14px;
@@ -71,7 +71,7 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1365px) {
   .header__breadcrumbs {
     margin-bottom: 32px;
   }

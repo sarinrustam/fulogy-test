@@ -1,9 +1,11 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from '@material-ui/core/Link';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import styles from './index.module.css';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <section className={styles.header}>
       <div className={styles.header__menu}>
@@ -17,7 +19,7 @@ const Header = () => {
             alt='Аватар пользователя'
           />
         </div>
-        <p className={styles.header__name}>Иванова А.</p>
+        <p className={styles.header__name}>{props.userData.fullName}</p>
       </div>
       <div className={styles.header__breadcrumbs}>
         <h1 className={styles.header__title}>Личный профиль</h1>
@@ -32,6 +34,12 @@ const Header = () => {
       </div>
     </section>
   );
+};
+
+Header.propTypes = {
+  userData: PropTypes.shape({
+    fullName: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Header;

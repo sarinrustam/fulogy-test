@@ -7,9 +7,9 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullName: 'test',
-      email: 'test@test.com',
-      phone: '8111111111',
+      fullName: 'Пушистый енот',
+      email: 'pushistik@test.com',
+      phone: '89197712222',
     };
 
     this.handlerChangeInfo = this.handlerChangeInfo.bind(this);
