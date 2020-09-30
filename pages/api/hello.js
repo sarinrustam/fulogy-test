@@ -1,30 +1,28 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const http = require('http');
 
 export default (req, res) => {
-  const {
-    query: { id, name },
-    method,
-  } = req;
-  console.log('api')
-  // if (method === 'GET') {
-  //   console.log('get')
-  //   let responce = '';
-  //   const req = http.request({
-  //     hostname: 'http://jsonplaceholder.typicode.com',
-  //     port: '80',
-  //     path: '/posts',
-  //     method: 'POST',
-  //     headers: {}
-  //   }, (res) => {
-  //     res.setEncoding('utf8');
-  //     res.on('data', (chunk) => {
-  //       responce+=chunk
-  //     })
+ if (req.method === 'POST') {
+  console.log(req.body, 'req.body');
+  const postData = JSON.stringify(req.body);
 
-  //     res.end();
-  //   })
-  // }
-  res.statusCode = 200
-  res.json({ name: 'John Doe' })
+  const options = {
+   hostname: 'jsonplaceholder.typicode.com',
+   port: 80,
+   path: '/posts',
+   method: 'POST',
+   headers: {
+    'Content-Type': 'application/json; charset=UTF-8',
+    'x-token-access': 'random'
+   }
+  };
+
+  const request = http.request(options);
+
+  request.write(postData);
+  request.end();
+
+   res.status(201).json({ result: true });
+ } else {
+  res.status(404).json({ message: 'Not found' });
+ }
 }

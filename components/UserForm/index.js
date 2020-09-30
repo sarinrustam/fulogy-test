@@ -20,12 +20,50 @@ class UserForm extends React.Component {
       fullName: this.props.fullName,
       email: this.props.email,
       phone: this.props.phone,
+      openAskModal: false,
+      openSuccessModal: false
     };
 
     this.handleSubmitButton = this.handleSubmitButton.bind(this);
     this.handleChangeFullname = this.handleChangeFullname.bind(this);
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangePhone = this.handleChangePhone.bind(this);
+    this.handleAskModal = this.handleAskModal.bind(this);
+    this.submitForm = this.submitForm.bind(this);
+  }
+
+  submitForm() {
+    const body = JSON.stringify({
+      fullName: this.state.fullName,
+      email: this.state.email,
+      phone: this.state.phone
+    });
+  
+    fetch('/api/hello', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body
+    }).then(response => response.json())
+      .then(result => {
+        localStorage.setItem('user', body);
+        this.props.onChangeInfo(JSON.parse(body));
+        this.handleAskModal();
+        this.handleSuccessModal();
+      }).catch((e) => {console.log('error')});
+  }
+  
+  handleSuccessModal() {
+    this.setState({
+      openSuccessModal: !this.state.openSuccessModal
+    });
+  }
+  
+  handleAskModal() {
+    this.setState({
+      openAskModal: !this.state.openAskModal
+    });
   }
 
   handleChangeFullname(evt) {
@@ -61,14 +99,10 @@ class UserForm extends React.Component {
     };
     console.log('Clicked');
     console.log(userData);
+    this.handleAskModal();
   }
 
   render() {
-    // const { data, error } = useSwr('/api/hello', fetcher);
-    const data = fetcher('/api/hello');
-    console.log(data)
-
-
     return (
       <>
         <form className={styles['user-form']}>
@@ -123,24 +157,39 @@ class UserForm extends React.Component {
         </form>
         <Dialog 
           aria-labelledby="modal" 
-          open={true} 
+          open={this.state.openAskModal} 
           classes={{
             scrollPaper: styles['user-form__modal'], 
             paper: styles['user-form__modal-rounded']
           }}
         >
           <div className={styles['user-form__modal-wrap']}>
-            <IconButton className={styles['user-form__modal-button']} aria-label="закрыть">
+            <IconButton 
+              className={styles['user-form__modal-button']}
+              aria-label="закрыть"
+              onClick={this.handleAskModal}
+            >
               <CloseIcon className={styles['user-form__modal-icon']} />
             </IconButton>
             <p className={styles['user-form__modal-text']}>Сохранить изменения?</p>
-            <Button color="primary" className={styles['user-form__modal-submit']} variant="contained" >Сохранить</Button>
-            <Button className={styles['user-form__modal-cancel']} variant="outlined">Не сохранять</Button>
+            <Button 
+              color="primary" 
+              className={styles['user-form__modal-submit']} 
+              variant="contained"
+              onClick={this.submitForm} 
+            >
+              Сохранить
+            </Button>
+            <Button
+             className={styles['user-form__modal-cancel']} 
+             variant="outlined">
+               Не сохранять
+            </Button>
           </div>
         </Dialog>
         <Dialog
           aria-labelledby="succes-message"
-          open={false}
+          open={this.state.openSuccessModal}
           classes={{
             scrollPaper: styles['user-form__modal'], 
             paper: styles['user-form__modal-rounded']
@@ -148,7 +197,12 @@ class UserForm extends React.Component {
         >
           <div className={styles['user-form__success']}>
             <p className={styles['user-form__success-text']}>Данные успешно изменены</p>
-            <Button color="primary" className={styles['user-form__success-button']} variant="contained" >Хорошо</Button>
+            <Button 
+              color="primary"
+              className={styles['user-form__success-button']}
+              variant="contained"
+              onClick={this.handleSuccessModal}
+            >Хорошо</Button>
           </div>
         </Dialog>
       </>

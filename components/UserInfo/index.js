@@ -4,7 +4,7 @@ import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import PhoneIcon from '@material-ui/icons/Phone';
 import styles from './index.module.css';
 
-const UserInfo = () => {
+const UserInfo = (props) => {
   return (
     <Typography
       className={styles['user-info']}
@@ -17,7 +17,7 @@ const UserInfo = () => {
         <AlternateEmailIcon
           className={styles['user-info__icon']}
         />
-        <p className={styles['user-info__text']}>Ivanova@mail.com</p>
+        <p className={styles['user-info__text']}>{props.userData.email}</p>
       </Box>
       <Box
         className={styles['user-info__item']}
