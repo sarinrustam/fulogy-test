@@ -5,7 +5,6 @@ import styles from './index.module.css';
 const UserPanel = () => {
   return (
     <section className={styles['user-panel']}>
-      {/* <h2>Блок пользователя</h2> */}
       <img
         className={styles['user-panel__image']}
         src='../avatar-default.svg'
@@ -14,6 +13,7 @@ const UserPanel = () => {
         alt='Аватар пользователя'
       />
       <p className={styles['user-panel__name']}>Иванова Анна Михайловна</p>
+      <p className={styles['user-panel__text']}>Редактировать</p>
       <IconButton>
         <CreateIcon />
       </IconButton>

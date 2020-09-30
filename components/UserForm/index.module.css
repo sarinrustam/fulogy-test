@@ -8,10 +8,88 @@
   padding: 17px 23px;
 }
 
+@media (min-width: 1280px) {
+  .user-form {
+    padding: 49px 0 44px 34px;
+  }
+}
+
+.user-form__wrapper {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 26px 0;
+  padding: 0;
+}
+
+@media (min-width: 1280px) {
+  .user-form__wrapper {
+    flex-direction: row;
+    margin-bottom: 46px;
+  }
+}
+
 .user-form__input {
   font-size: 14px;
   line-height: 19px;
   font-weight: 400;
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .user-form__input {
+    width: 254px;
+  }
+}
+
+.user-form__item {
+  margin-bottom: 39px;
+}
+
+.user-form__item:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1280px) {
+  .user-form__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 110px;
+    margin-bottom: 0;
+  }
+
+  .user-form__item::before {
+    content: "";
+    position: absolute;
+    right: -77px;
+    top: -20px;
+    width: 1px;
+    height: 97px;
+    background-color: #CAE7FE;
+  }
+
+  .user-form__item:last-child::before {
+    display: none;
+  }
+
+  .user-form__item:last-child {
+    margin-right: 0;
+  }
+}
+
+.user-form__icon {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .user-form__icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-right: 45px;
+    color: #00BFA5;
+  }
 }
 
 .user-form__button {
@@ -24,6 +102,25 @@
 }
 
 .user-form__modal {
+  align-items: flex-end;
+  border-radius: 4px;
+}
+
+.user-form__modal-rounded {
+  border-radius: 36px 36px 0 0;
+}
+
+@media (min-width: 1280px) {
+  .user-form__modal {
+    align-items: center;
+  }
+
+  .user-form__modal-rounded {
+    border-radius: 10px;
+  }
+}
+
+.user-form__modal-wrap {
   padding: 25px 25px 0 25px;
   min-height: 426px;
   display: flex;
@@ -37,6 +134,13 @@
   line-height: 25px;
   font-weight: 600;
   color: rgba(49, 49, 49, 0.7);
+}
+
+@media (min-width: 1280px) {
+  .user-form__modal-text {
+    font-size: 24px;
+    line-height: 33px;
+  }
 }
 
 .user-form__modal-button {
@@ -67,10 +171,37 @@
   flex-direction: column;
 }
 
+@media (min-width: 1280px) {
+  .user-form__success {
+    padding: 84px 30px 109px 29px;
+  }
+}
+
 .user-form__success-text {
   color: rgba(49, 49, 49, 0.7);
   margin: 0;
   font-size: 18px;
   line-height: 25px;
   font-weight: 600;
+}
+
+@media (min-width: 1280px) {
+  .user-form__success-text {
+    font-size: 24px;
+    line-height: 33px;
+    margin-bottom: 42px;
+  }
+}
+
+.user-form__success-button {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .user-form__success-button {
+    display: block;
+    background-color: #01BDA7;
+    color: white;
+    width: 202px;
+  }
 }

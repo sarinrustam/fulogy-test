@@ -22,7 +22,7 @@ const Header = () => {
       <div className={styles.header__breadcrumbs}>
         <h1 className={styles.header__title}>Личный профиль</h1>
         <Breadcrumbs aria-label='breadcrumbs'>
-          <Link href='/'>
+          <Link href='/' className={styles['header__breadcrumbs-item']}>
             Главная
           </Link>
           <Link href='/'>

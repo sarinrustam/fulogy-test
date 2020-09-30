@@ -8,8 +8,15 @@
 
 .user-info__item {
   display: flex;
+  align-items: center;
   padding: 22px 12px;
   border-bottom: 1px solid #CAE7FE;
+}
+
+@media (min-width: 1280px) {
+  .user-info__item {
+    padding: 33px 0 33px 77px;
+  }
 }
 
 .user-info__item:last-child {
@@ -19,11 +26,27 @@
 .user-info__text {
   font-size: 14px;
   line-height: 19px;
+  font-weight: 400;
   color: #313131;
   margin: 0;
+}
+
+@media (min-width: 1280px) {
+  .user-info__text {
+    font-size: 18px;
+    line-height: 25px;
+  }
 }
 
 .user-info__icon {
   color: #00BFA5;
   margin-right: 12px;
+}
+
+@media (min-width: 1280px) {
+  .user-info__icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 45px;
+  }
 }

@@ -56,7 +56,6 @@ const theme = createMuiTheme({
     },
     MuiFormControl: {
       root: {
-        margin: '0 0 30px 0',
         fontSize: '14px',
         lineHeight: '19px',
         fontWeight: '400',
@@ -92,19 +91,11 @@ const theme = createMuiTheme({
       }
     },
     MuiDialog: {
-      scrollPaper: {
-        alignItems: 'flex-end',
-      },
       paper: {
         margin: '0',
       },
       paperWidthSm: {
         width: '100%',
-      }
-    },
-    MuiPaper: {
-      rounded: {
-        borderRadius: '36px 36px 0 0',
       }
     }
   }

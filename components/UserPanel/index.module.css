@@ -9,9 +9,25 @@
   margin-bottom: 10px;
 }
 
+@media (min-width: 1280px) {
+  .user-panel {
+    padding: 24px 28px 24px 30px;
+    margin-bottom: 24px;
+  }
+}
+
 .user-panel__image {
   border-radius: 50%;
   margin-right: 10px;
+}
+
+
+@media (min-width: 1280px) {
+  .user-panel__image {
+    width: 80px;
+    height: 80px;
+    margin-right: 42px;
+  }
 }
 
 .user-panel__name {
@@ -20,6 +36,29 @@
   font-weight: 600;
   color: white;
   margin: 0 auto 0 0;
+}
+
+@media (min-width: 1280px) {
+  .user-panel__name {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+.user-panel__text {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .user-panel__text {
+    display: block;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-right: 8px;
+    color: white;
+  }
 }
 
 .user-panel__icon {
