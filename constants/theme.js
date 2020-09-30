@@ -7,6 +7,9 @@ const theme = createMuiTheme({
     primary: {
       main: '#ffffff',
     },
+    greeny: {
+      main: '#01BDA7',
+    },
     secondary: {
       main: '#19857b',
     },
@@ -43,7 +46,65 @@ const theme = createMuiTheme({
       root: {
         padding: '0',
         color: 'white',
-        margin: '0'
+        margin: '0',
+      }
+    },
+    MuiTypography: {
+      root: {
+        margin: '0 0 10px 0',
+      }
+    },
+    MuiFormControl: {
+      root: {
+        margin: '0 0 30px 0',
+        fontSize: '14px',
+        lineHeight: '19px',
+        fontWeight: '400',
+      }
+    },
+    MuiInputBase: {
+      input: {
+        fontSize: '14px',
+        lineHeight: '19px',
+        fontWeight: '400',
+        color: 'rgba(49, 49, 49, 0.5)',
+      }
+    },
+    MuiButton: {
+      root: {
+        borderRadius: '36px',
+        padding: '15px 26px',
+      },
+      containedPrimary: {
+        backgroundColor: '#01BDA7',
+      },
+      outlined: {
+        borderColor: '#01BDA7',
+        color: '#01BDA7',
+        paddingTop: '15px',
+        paddingBottom: '16px',
+      },
+      label: {
+        textTransform: 'none',
+        fontSize: '14px',
+        lineHeight: '19px',
+        fontWeight: '600',
+      }
+    },
+    MuiDialog: {
+      scrollPaper: {
+        alignItems: 'flex-end',
+      },
+      paper: {
+        margin: '0',
+      },
+      paperWidthSm: {
+        width: '100%',
+      }
+    },
+    MuiPaper: {
+      rounded: {
+        borderRadius: '36px 36px 0 0',
       }
     }
   }

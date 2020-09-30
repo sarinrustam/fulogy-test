@@ -1,21 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import useSwr from 'swr'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+import styles from './index.module.css';
+import Dialog from '@material-ui/core/Dialog';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 
-const styles = {
-  userForm: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    width: '254px',
-    backgroundColor: 'white',
-  },
-  userForm__input: {
-    padding: '0 0 10px 0',
-  }
-};
+const fetcher = (url) => fetch(url).then((res) => res.json())
 
 class UserForm extends React.Component {
   constructor(props) {
@@ -68,47 +61,68 @@ class UserForm extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
-    
+    // const { data, error } = useSwr('/api/hello', fetcher);
+    const data = fetcher('/api/hello');
+    console.log(data)
+
+
     return (
-      <form className={classes.userForm}>
-        <TextField
-          className={classes.userForm__input}
-          id="fullname"
-          label="Фамилия и имя"
-          placeholder="Укажите ваши фамилию и имя"
-          variant="outlined"
-          defaultValue={this.state.fullName}
-          onChange={this.handleChangeFullname}
-        />
-        <TextField
-          className={classes.userForm__input}
-          id="email"
-          label="E-mail"
-          placeholder="Ivanova@mail.ru"
-          variant="outlined"
-          defaultValue={this.state.email}
-          onChange={this.handleChangeEmail}
-        />
-        <TextField
-          className={classes.userForm__input}
-          id="phone"
-          label="Номер телефона"
-          placeholder="Укажите номер телефона"
-          variant="outlined"
-          defaultValue={this.state.phone}
-          onChange={this.handleChangePhone}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          disableElevation
-          onClick={this.handleSubmitButton}
-        >
+      <>
+        <form className={styles['user-form']}>
+          <TextField
+            className={styles['user-form__input']}
+            id="fullname"
+            label="Фамилия и имя"
+            placeholder="Укажите ваши фамилию и имя"
+            variant="outlined"
+            defaultValue={this.state.fullName}
+            onChange={this.handleChangeFullname}
+          />
+          <TextField
+            className={styles['user-form__input']}
+            id="email"
+            label="E-mail"
+            placeholder="Ivanova@mail.ru"
+            variant="outlined"
+            defaultValue={this.state.email}
+            onChange={this.handleChangeEmail}
+          />
+          <TextField
+            className={styles['user-form__input']}
+            id="phone"
+            label="Номер телефона"
+            placeholder="Укажите номер телефона"
+            variant="outlined"
+            defaultValue={this.state.phone}
+            onChange={this.handleChangePhone}
+          />
+          <Button
+            className={styles['user-form__button']}
+            type="submit"
+            variant="contained"
+            color="primary"
+            disableElevation
+            onClick={this.handleSubmitButton}
+          >
             Сохранить изменения
         </Button>
-      </form>
+        </form>
+        <Dialog aria-labelledby="modal" open={false}>
+          <div className={styles['user-form__modal']}>
+            <IconButton className={styles['user-form__modal-button']} aria-label="закрыть">
+              <CloseIcon className={styles['user-form__modal-icon']} />
+            </IconButton>
+            <p className={styles['user-form__modal-text']}>Сохранить изменения?</p>
+            <Button color="primary" className={styles['user-form__modal-submit']} variant="contained" >Сохранить</Button>
+            <Button className={styles['user-form__modal-cancel']} variant="outlined">Не сохранять</Button>
+          </div>
+        </Dialog>
+        <Dialog aria-labelledby="succes-message" open={false} >
+          <div className={styles['user-form__success']}>
+            <p className={styles['user-form__success-text']}>Данные успешно изменены</p>
+          </div>
+        </Dialog>
+      </>
     );
   }
 };
@@ -119,4 +133,4 @@ UserForm.propTypes = {
   phone: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(UserForm);
+export default UserForm;

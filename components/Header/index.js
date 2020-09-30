@@ -17,6 +17,7 @@ const Header = () => {
             alt='Аватар пользователя'
           />
         </div>
+        <p className={styles.header__name}>Иванова А.</p>
       </div>
       <div className={styles.header__breadcrumbs}>
         <h1 className={styles.header__title}>Личный профиль</h1>
