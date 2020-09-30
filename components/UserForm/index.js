@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import useSwr from 'swr'
+import useSwr from 'swr';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import styles from './index.module.css';
@@ -43,7 +43,7 @@ class UserForm extends React.Component {
       phone: this.state.phone
     });
   
-    fetch('/api/hello', {
+    fetch('/api/user', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8'
@@ -122,8 +122,7 @@ class UserForm extends React.Component {
       email: this.state.email,
       phone: this.state.phone,
     };
-    console.log('Clicked');
-    console.log(userData);
+  
     this.handleAskModal();
   }
 

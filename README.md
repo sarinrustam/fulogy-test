@@ -1,30 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Тестовое задание Fulogy
 
-## Getting Started
+## Задание:
+### Для задачи использовать next+react+material-ui
+1. Реализовать дизайн согласно макету;
+2. Добавить валидацию ФИО, телефона и email
+3. После сохранения записывать все данные в Local Storage
+4. При сохранение сделать POST запрос с сервера на http://jsonplaceholder.typicode.com/posts c заголовком Content-Type: application/json и x-token-access: random, а в теле передать все данные из формы. В Network не должно быть видно запроса на конечный URL.
 
-First, run the development server:
+## Как запустить локально
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. Скачайте архив приложения
+2. Установите зависимости командой ``npm install``
+3. Запустите сборку локально командой ``npm run dev``
+4. Порт для сервера можно поменять в package.json
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Контакты
+1. WhatsApp, Telegram: 8-919-773-43-11
+2. Email: lorienas@gmail.com

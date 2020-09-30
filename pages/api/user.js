@@ -2,7 +2,6 @@ const http = require('http');
 
 export default (req, res) => {
  if (req.method === 'POST') {
-  console.log(req.body, 'req.body');
   const postData = JSON.stringify(req.body);
 
   const options = {

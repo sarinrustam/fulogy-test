@@ -97,6 +97,21 @@ const theme = createMuiTheme({
       paperWidthSm: {
         width: '100%',
       }
+    },
+    MuiOutlinedInput: {
+      root: {
+        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          borderColor: 'rgba(49, 49, 49, 0.4)',
+          borderWidth: '1px',
+        },
+      }
+    },
+    MuiFormLabel: {
+      root: {
+        '&.Mui-focused': {
+          color: 'rgba(49, 49, 49, 0.4)',
+        },
+      }
     }
   }
 });

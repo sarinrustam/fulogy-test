@@ -59,8 +59,8 @@ UserBlockContainer.propTypes = {
     fullName: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    changeUserData: PropTypes.func.isRequired,
   }).isRequired,
+  changeUserData: PropTypes.func.isRequired,
 };
 
 export default UserBlockContainer;
