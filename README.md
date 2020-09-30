@@ -14,6 +14,6 @@
 3. Запустите сборку локально командой ``npm run dev``
 4. Порт для сервера можно поменять в package.json
 
-# Контакты
+## Контакты
 1. WhatsApp, Telegram: 8-919-773-43-11
 2. Email: lorienas@gmail.com
